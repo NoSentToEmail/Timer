@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Timer</string>
+    <string name="app_name">Timer Test</string>
+    <string name="timer">0:00:00</string>
+    <string name="button_start">ПУСК</string>
+    <string name="button_stop">ПАУЗА</string>
+    <string name="button_reset">СБРОС</string>
 </resources>
