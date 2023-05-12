@@ -1,11 +1,11 @@
-package com.example.timertest
+package com.example.timer
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.TextView
-import com.example.timer.R
 import java.util.*
 
 
@@ -22,6 +22,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState != null) {
+            second =  savedInstanceState.getInt("second")
+        }
+        if (savedInstanceState != null) {
+            isRunning = savedInstanceState.getBoolean("isRunning")
+        }
+
+
+
         timer = findViewById(R.id.TimerView)
         start = findViewById(R.id.buttonStart)
         stop = findViewById(R.id.buttonStop)
@@ -43,6 +53,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("second", second)
+        outState.putBoolean("isRunning", isRunning)
     }
 
     private fun runTimer() {
